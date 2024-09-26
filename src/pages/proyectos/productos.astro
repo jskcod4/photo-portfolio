@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SingleProject from '../../components/SingleProject.astro';
+import ImgMarriedHeader from '../../assets/portfolio/product-01.jpg';
+
+import portrait01 from '../../assets/portfolio/portrait-01.jpg';
+import married01 from '../../assets/portfolio/boda-01.jpg';
+
+const images = await Astro.glob("/src/assets/portfolio/productos/*").then(files => {
+  return files.map(file => file.default);
+});
+
+
+
+const othersProjects = [
+  {
+    imageUrl: portrait01,
+    title: "Retrato",
+    redirectUrl: "/proyectos/retratos"
+  },
+  {
+    imageUrl: married01,
+    title: "Bodas",
+    redirectUrl: "/proyectos/bodas"
+  },
+];
+---
+
+<Layout title="José Angel Silva - Paisajes">
+    <SingleProject page={ {
+        title: "Productos",
+        backgroundUrl: `${ImgMarriedHeader.src}`
+        }} 
+        images={ images } 
+         othersProjects={ othersProjects }
+    />
+</Layout>

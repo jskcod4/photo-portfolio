@@ -1,0 +1,165 @@
+---
+interface Props {
+  page: {
+    title: string;
+    backgroundUrl: string;
+  };
+  images: any[];
+  othersProjects: {
+    title: string;
+    imageUrl: string;
+    redirectUrl: string;
+  }[];
+}
+
+import CardProject from './CardProject.astro';
+
+const { page, images, othersProjects } = Astro.props;
+
+const backgroundUrl = `url(${page.backgroundUrl})`;
+---
+<!-- FLUID WRAP -->
+<div class="photolane_fn_fluid_wrap">
+  <div class="third_type_of_project single" >
+    <div class="container">
+      <div class="breadcrumbs">
+        <p>
+          <a href="/">Inicio</a> /
+          <a href="/proyectos/">Proyectos</a> /
+          <span>{page.title}</span>
+        </p>
+      </div>
+
+      <div class="project_title">
+        <h3>{page.title}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /FLUID WRAP -->
+
+<!-- SECTION Q -->
+<div class="container">
+  <div class="section_q second_single seventh_single">
+    <!-- EQUAL IMAGES -->
+    <div class="photolane_fn_equal_project">
+      <ul class="gallery">
+        {
+          images.map((image) => (
+            <li>
+              <a href="img/project_single/equal_imgs/full1.jpg">
+                <img
+                  src={image.src}
+                  alt={image}
+                  width="374"
+                  height="374"
+                />
+              </a>
+            </li>
+          ))
+        }
+        
+      </ul>
+    </div>
+    <!-- /EQUAL IMAGES -->
+  </div>
+</div>
+<!-- /SECTION Q -->
+
+<div class="clearfix"></div>
+
+<!--  PREVNEXT BOX  -->
+<div class="prevnext">
+  <div class="container">
+    <div class="pnbox">
+      <ul>
+        
+        <li class="prev">
+          <span class="prev">
+            <a href={othersProjects[0].redirectUrl}>
+              <i class="xcon-angle-left">
+              </i>
+              <span class="wov_text">Anterior</span>
+              <span class="text">
+                { othersProjects[0].title }
+              </span>
+            </a>
+          </span>
+          <div class="hover_img">
+            <img
+              src={othersProjects[0].imageUrl.src}
+              width="200"
+              height="120"
+              alt=""
+            />
+          </div>
+        </li>
+        <li class="next">
+          <span class="next">
+            <a href={othersProjects[1].redirectUrl}>
+              <span class="wov_text">
+                Siguiente
+              </span>
+              <i class="xcon-angle-right"></i>
+              <span class="text">
+                { othersProjects[1].title }
+              </span>
+            </a>
+          </span>
+          <div class="hover_img">
+            <img
+              src={othersProjects[1].imageUrl.src}
+              alt=""
+              width="200"
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="all">
+      <div class="all_in">
+        <a href="/proyectos/">
+          <span class="a"></span>
+          <span class="b"></span>
+          <span class="c"></span>
+        </a>
+        <div class="tooltip_all"><span>Todos los proyectos</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  /PREVNEXT BOX  -->
+
+<!-- PROJECT PREVIEW -->
+<div class="container">
+  <div class="last_section">
+    <div class="aaaabbbb">
+      <ul class="project_list">
+        {
+          othersProjects.map((project) => (
+            <li>
+              <CardProject
+                title={project.title}
+                redirectUrl={project.redirectUrl}
+                imageUrl={project.imageUrl.src}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /PROJECT PREVIEW -->
+
+
+<style define:vars={{ backgroundUrl }}>
+  .third_type_of_project.single {
+    background-image: var(--backgroundUrl) ;
+  }
+
+  .photolane_fn_equal_project ul li img {
+    object-fit: cover;
+  }
+</style>

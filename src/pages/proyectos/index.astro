@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CardProject from '../../components/CardProject.astro';
+import married01 from '../../assets/portfolio/boda-01.jpg';
+import landscape01 from '../../assets/portfolio/landscape-01.jpg';
+import portrait01 from '../../assets/portfolio/portrait-01.jpg';
+import product01 from '../../assets/portfolio/product-01.jpg';
+import signature from '../../assets/portfolio/signature.png';
+---
+
+<Layout title="José Angel Silva - Portafolio">
+  <!--  SECONDARY WRAP  -->
+  <div class="photolane_fn_secondary_wrap">
+    <div class="container">
+      <div class="breadcrumbs">
+        <p><a href="/">Inicio</a> / <span>Proyectos</span></p>
+      </div>
+      <div class="project_title">
+        <h3>Proyectos</h3>
+      </div>
+    </div>
+
+    <!-- PROJECT LIST -->
+    <div class="container">
+      <div class="aaaabbbb">
+        <ul class="project_list">
+            <li>
+              <CardProject
+                title="Bodas"
+                imageUrl={married01.src}
+                redirectUrl="/proyectos/bodas"
+              />
+            </li>
+            <li>
+              <CardProject
+                title="Retratos"
+                imageUrl={portrait01.src}
+                redirectUrl="/proyectos/retratos"
+              />
+            </li>
+            <li>
+              <CardProject
+                title="Productos"
+                imageUrl={product01.src}
+                redirectUrl="/proyectos/productos"
+              />
+            </li>
+            <li>
+              <CardProject
+                title="Paisajes"
+                imageUrl={landscape01.src}
+                redirectUrl="/proyectos/paisajes"
+              />
+            </li>
+          </ul>
+
+        <!-- <div class="next">
+          <a href="#">Next Projects<i class="xcon-angle-right"></i></a>
+        </div> -->
+      </div>
+    </div>
+    <!-- /PROJECT LIST -->
+  </div>
+  <!--  /SECONDARY WRAP  -->
+</Layout>
