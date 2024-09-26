@@ -1666,7 +1666,7 @@ ul.nav li ul li {
 .photolane_fn_secondary_wrap .photer_img .title_holder_in {
   display: inline-block;
 }
-.photolane_fn_secondary_wrap .photer_img .title_holder h3 {
+.photolane_fn_secondary_wrap .photer_img .title_holder h1 {
   font-size: 36px;
   letter-spacing: 0.5px;
   color: #fffefe;
@@ -1681,6 +1681,7 @@ ul.nav li ul li {
   line-height: 1;
   text-transform: uppercase;
 }
+
 .photolane_fn_secondary_wrap .photer_full_info {
   width: 50%;
   float: left;
@@ -1787,6 +1788,14 @@ ul.nav li ul li {
   line-height: 26px;
   letter-spacing: 1px;
   color: #777;
+}
+.photolane_fn_secondary_wrap .photer_knowledge .title_holder span.count {
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #ddd;
+  margin-bottom: 14px;
+  font-weight: 400;
 }
 .photolane_fn_secondary_wrap .container_wo_right {
   padding-left: 50px;
