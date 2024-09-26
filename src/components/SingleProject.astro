@@ -4,7 +4,7 @@ interface Props {
     title: string;
     backgroundUrl: string;
   };
-  images: any[];
+  images: ImageMetadata[];
   othersProjects: {
     title: string;
     imageUrl: ImageMetadata;
@@ -12,10 +12,10 @@ interface Props {
   }[];
 }
 
+import { Image } from 'astro:assets';
 import CardProject from './CardProject.astro';
 
 const { page, images, othersProjects } = Astro.props;
-
 const backgroundUrl = `url(${page.backgroundUrl})`;
 ---
 <!-- FLUID WRAP -->
@@ -47,12 +47,15 @@ const backgroundUrl = `url(${page.backgroundUrl})`;
         {
           images.map((image) => (
             <li>
-              <a href="img/project_single/equal_imgs/full1.jpg">
-                <img
-                  src={image.src}
-                  alt={image}
+              <a href={image.src}>
+                <Image
+                  src={image}
                   width="374"
                   height="374"
+                  loading="lazy"
+                  decoding="async"
+                  quality="100"
+                  alt="Imagen de proyecto realizada por José Silva"
                 />
               </a>
             </li>
@@ -86,11 +89,14 @@ const backgroundUrl = `url(${page.backgroundUrl})`;
             </a>
           </span>
           <div class="hover_img">
-            <img
-              src={othersProjects[0].imageUrl.src}
+            <Image
+              src={othersProjects[0].imageUrl}
               width="200"
               height="120"
-              alt=""
+              loading="lazy"
+              decoding="async"
+              quality="50"
+              alt="Imagen de proyecto realizada por José Silva"
             />
           </div>
         </li>
@@ -107,10 +113,14 @@ const backgroundUrl = `url(${page.backgroundUrl})`;
             </a>
           </span>
           <div class="hover_img">
-            <img
-              src={othersProjects[1].imageUrl.src}
-              alt=""
+            <Image
+              src={othersProjects[1].imageUrl}
               width="200"
+              height="120"
+              loading="lazy"
+              decoding="async"
+              quality="50"
+              alt="Imagen de proyecto realizada por José Silva"
             />
           </div>
         </li>
@@ -142,7 +152,7 @@ const backgroundUrl = `url(${page.backgroundUrl})`;
               <CardProject
                 title={project.title}
                 redirectUrl={project.redirectUrl}
-                imageUrl={project.imageUrl.src}
+                imageUrl={project.imageUrl}
               />
             </li>
           ))

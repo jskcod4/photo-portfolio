@@ -1,15 +1,16 @@
 ---
 interface Props {
 	title: string;
-    imageUrl: string;
+    imageUrl: ImageMetadata;
     redirectUrl: string;
 }
+import { Image } from 'astro:assets';
 
 const { imageUrl, title, redirectUrl } = Astro.props;
 ---
 
 <div class="photolane_fn_main_img_holder">
-    <img src={imageUrl} alt="" />
+    <img src={imageUrl.src} alt="" />
     <div class="overlay">
         <a href={redirectUrl}></a>
     </div>
