@@ -8,7 +8,7 @@ const { imageUrl, title, redirectUrl } = Astro.props;
 ---
 
 <div class="photolane_fn_main_img_holder">
-    <img src={imageUrl.src} alt="" />
+    <img src={imageUrl.src} alt={ `Una imagen del portafolio de @jskcod4 - ${imageUrl.src}` } />
     <div class="overlay">
         <a href={redirectUrl}></a>
     </div>
